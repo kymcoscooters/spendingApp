@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Spending app</title>
+        {% load static %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'spending/style.css' %}">
+    </head>
+    <body>
+        <h1>Log in!</h1>
+        <h4>Fill in your user credentials below</h4>
+        {% if error_message %}<p class="error-message">{{ error_message }}</p>{% endif %}
+        <form action="{% url 'spending:postlogin' %}" method="POST">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" name="username">
+            <label for="password">Password</label>
+            <input type="password" name="password">
+            <input type="submit" value="Log in">
+        </form>
+    </body>
+</html>

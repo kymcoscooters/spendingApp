@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Spending app</title>
+        {% load static %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'spending/style.css' %}">
+    </head>
+    <body>
+        <h1 style={{ user.nameStyle }}>{{ user.name }}</h1>
+        <h3>{{ user.ssn }}</h3>
+        <h3>{{ user.address }}</h3>
+        <h3>Add custom style to your username, e.g. "color:red"</h3>
+        <form action="{% url 'spending:addStyle' user.id %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="style">
+            <input type="submit" value="Add style!">
+        </form>
+        <h4>Check your previous receipts or add a new one</h4>
+
+        {% if error_message %}<p class="error-message">{{ error_message }}</p>{% endif %}
+        <button onclick="location.href='/spending/addReceipt/{{ user.id }}';">Add new receipt</button>
+        <h4>Previous receipts:</h4>
+        <div class="container">
+            <ul>
+                {% for receipt in user.receipt_set.all %}
+                    <li>{{ receipt.shop }} {{ receipt.receiptDate }}, sum: {{ receipt.totalSum }}€</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

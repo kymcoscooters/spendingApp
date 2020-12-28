@@ -1,0 +1,39 @@
+h1 {
+    color: green;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+button, input, label, select {
+    width: 200px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+input[type=text], input[type=password] {
+    text-align: left;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Spending app</title>
+        {% load static %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'spending/style.css' %}">
+    </head>
+    <body>
+        <h1>Spending App</h1>
+        <h4>Log in, or create a user if you don't already have one!</h4>
+        <button onclick="location.href='/spending/login';">LOG IN</button>
+        <button onclick="location.href='/spending/createUser';">CREATE NEW USER</button>
+    </body>
+</html>
